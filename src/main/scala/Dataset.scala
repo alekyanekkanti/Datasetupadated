@@ -5,6 +5,7 @@ import org.apache.spark.SparkConf
 import org.apache.spark.sql
 import org.apache.spark.sql._
 import org.apache.spark.sql.catalyst.expressions.{Month, Year}
+import org.apache.spark.sql.functions._
 
 object Dataset{
   def main(args: Array[String]): Unit = {
@@ -26,6 +27,20 @@ object Dataset{
     val temp2 = result.groupBy($"Country").max("sales").show()
     textFile.sort($"UnitPrice".asc).show()
     result.selectExpr("sales as user_sales").show()
+    //val month = textFile.withColumn("month",textFile(add_months("InvoiceDate",4)))
+    //month.show()
+    textFile.repartition(5).show()
+     //val test = textFile.toJSON()
+    textFile.count()
+    textFile.describe("UnitPrice").show()
+     textFile.withColumn("month",lit(10)).show()
+    textFile.withColumnRenamed("UnitPrice","Price").show()
+
+    textFile.withColumn("Count",lower(col("Country"))).show()
+
+
+
+
 
 
 

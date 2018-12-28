@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Dataset_DefaultArtifact">
+    <output-path>$PROJECT_DIR$/out/artifacts/Dataset_DefaultArtifact</output-path>
+    <root id="archive" name="default_artifact.jar">
+      <element id="module-output" name="Dataset" />
+    </root>
+  </artifact>
+</component>
